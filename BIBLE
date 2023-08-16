@@ -1,0 +1,20 @@
+function Chat(message)
+    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(message , "All")
+end
+
+Bible_Lines = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptPoster/Christian/main/Bible-Lines"))()
+
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptPoster/Bible/main/Bible"))()
+
+local Bible_Main = lib:Window("Bible")
+
+Bible_Main:Label("Main")
+
+Bible_Main:Dropdown("Word Picker", Bible_Lines, function(line)
+    getgenv().line2 = tostring(line)
+end, true)
+
+
+Bible_Main:Button("Share the Words" , function() 
+    Chat(getgenv().line2)
+  end)

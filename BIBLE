@@ -4,17 +4,17 @@ end
 
 Rizz_Lines = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptPoster/Christian/main/Bible-Lines"))()
 
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptPoster/Bible/main/Bible"))()
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxScriptPoster/Rizz/main/Ui"))()
 
 local Rizz_Main = lib:Window("Bible")
 
 Rizz_Main:Label("Main")
 
-Rizz_Main:Dropdown("Word Picker", Bible_Lines, function(line)
+Rizz_Main:Dropdown("Line Picker", Rizz_Lines, function(line)
     getgenv().line2 = tostring(line)
 end, true)
 
 
-Rizz_Main:Button("Share the Words" , function() 
+Rizz_Main:Button("Share" , function() 
     Chat(getgenv().line2)
   end)
